@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.challenge.conexa.models.dto.PatientDTO;
 import com.challenge.conexa.models.entity.Patient;
+import com.challenge.conexa.repository.AppointmentRepository;
 import com.challenge.conexa.repository.PatientRepository;
 
 import lombok.AllArgsConstructor;
