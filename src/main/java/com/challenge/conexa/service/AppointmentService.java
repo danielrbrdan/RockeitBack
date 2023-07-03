@@ -1,6 +1,7 @@
 package com.challenge.conexa.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,13 @@ public class AppointmentService {
         }
 
         Patient patient = patientService.findById(appointment.getPatient().getId()).get();
-        appointment.setProfessional(professionalService.findById(appointment.getProfessional().getId()).get());
         appointment.setPatient(patient);
+
+        appointment.setProfessional(
+            professionalService.findById(
+                appointment.getProfessional().getId()
+            ).get()
+        );
 
         
         patientService.incrementPatientAppointments(patient.getId());
@@ -49,6 +55,18 @@ public class AppointmentService {
 
     public void deleteAll(List<Appointment> appointments) {
         appointmentRepository.deleteAll(appointments);
+    }
+
+    public Appointment update(AppointmentDTO appointmentDto) {
+        Optional<Appointment> appointmentOpt = appointmentRepository.findById(appointmentDto.getId());
+        if(!appointmentOpt.isPresent()){
+            return new Appointment();
+        }
+
+        var appointment = appointmentOpt.get();
+        appointment.setObservation(appointmentDto.getObservation());
+        
+        return appointmentRepository.save(appointment);
     }
 
     
