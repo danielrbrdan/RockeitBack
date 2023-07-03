@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.challenge</groupId>
-	<artifactId>conexa</artifactId>
+	<artifactId>rockeit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>conexa</name>
-	<description>Conexa challenge</description>
+	<name>rockeit</name>
+	<description>rockeit challenge</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
