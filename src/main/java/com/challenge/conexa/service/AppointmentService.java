@@ -47,6 +47,10 @@ public class AppointmentService {
         appointmentRepository.deleteById(id);
     }
 
+    public void deleteAll(List<Appointment> appointments) {
+        appointmentRepository.deleteAll(appointments);
+    }
+
     
 
 }
